@@ -1,11 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { TinkerService } from './tinker.service';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('TinkerService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [TinkerService]
+      imports: [HttpClientTestingModule],
+      providers: [TinkerService],
     });
   });
 
