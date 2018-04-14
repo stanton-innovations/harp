@@ -8,6 +8,10 @@ const routes: Routes = [
   },
   {
     path: '',
+    loadChildren: './modules/mini-cart/mini-cart.module#MiniCartModule'
+  },
+  {
+    path: '',
     redirectTo: '',
     pathMatch: 'full'
   }

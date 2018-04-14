@@ -16,6 +16,7 @@ import { StoreLocationComponent } from './components/store-location/store-locati
 import { ProfileComponent } from './components/profile/profile.component';
 import { SearchResultsModule } from './modules/search-results/search-results.module';
 import { AppRoutingModule } from './app-routing.module';
+import { MiniCartModule } from './modules/mini-cart/mini-cart.module';
 
 @NgModule({
   declarations: [
@@ -30,11 +31,13 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     RouterModule,
     SearchResultsModule,
+    MiniCartModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MatCardModule
+    MatCardModule,
+    MiniCartModule
   ],
   providers: [FakeBackendProvider, TinkerService],
   bootstrap: [AppComponent]
