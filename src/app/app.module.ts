@@ -10,10 +10,12 @@ import { StoreComponent } from './components/store/store.component';
 import { SearchComponent } from './components/search/search.component';
 import { StoreLocationComponent } from './components/store-location/store-location.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import {MatCardModule, MatExpansionModule, MatExpansionPanelHeader, MatGridListModule} from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { MatCardModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { SearchResultsModule } from './modules/search-results/search-results.module';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,13 @@ import { SearchResultsModule } from './modules/search-results/search-results.mod
   ],
   imports: [
     BrowserModule,
+    RouterModule,
+    SearchResultsModule,
+    AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MatCardModule,
-    SearchResultsModule
+    MatCardModule
   ],
   providers: [FakeBackendProvider, TinkerService],
   bootstrap: [AppComponent]
