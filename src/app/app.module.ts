@@ -10,8 +10,9 @@ import { StoreComponent } from './components/store/store.component';
 import { SearchComponent } from './components/search/search.component';
 import { StoreLocationComponent } from './components/store-location/store-location.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import {MatExpansionModule, MatExpansionPanelHeader, MatGridListModule} from '@angular/material';
+import {MatCardModule, MatExpansionModule, MatExpansionPanelHeader, MatGridListModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     HttpClientModule,
-    MatGridListModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MatCardModule
   ],
   providers: [FakeBackendProvider, TinkerService],
   bootstrap: [AppComponent]
