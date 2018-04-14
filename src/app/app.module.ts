@@ -13,6 +13,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import {MatCardModule, MatExpansionModule, MatExpansionPanelHeader, MatGridListModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { SearchResultsModule } from './modules/search-results/search-results.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     HttpClientModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MatCardModule
+    MatCardModule,
+    SearchResultsModule
   ],
   providers: [FakeBackendProvider, TinkerService],
   bootstrap: [AppComponent]
