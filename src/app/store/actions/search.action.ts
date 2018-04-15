@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-
+import { SearchResult } from '../../models/search-result';
 
 export enum SearchActionTypes {
   LoadSearchResults = '[Search] Load Search Results',
@@ -8,18 +8,20 @@ export enum SearchActionTypes {
 }
 
 export class LoadSearchResults implements Action {
-  readonly type: string = SearchActionTypes.LoadSearchResults;
+  payload: undefined;
+  readonly type = SearchActionTypes.LoadSearchResults;
 }
 
 export class LoadSearchResultsSuccess implements Action {
-  readonly type: string = SearchActionTypes.LoadSearchResultsSuccess;
+  type = SearchActionTypes.LoadSearchResultsSuccess;
+  constructor(public payload: SearchResult[]) {}
 }
 
 export class LoadSearchResultsFail implements Action {
-  readonly type: string = SearchActionTypes.LoadSearchResultsFail;
+  readonly type = SearchActionTypes.LoadSearchResultsFail;
 }
 
 export type SearchAction =
-  LoadSearchResults |
-  LoadSearchResultsFail |
-  LoadSearchResultsSuccess;
+  | LoadSearchResults
+  | LoadSearchResultsFail
+  | LoadSearchResultsSuccess;

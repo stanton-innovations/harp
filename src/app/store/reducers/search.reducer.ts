@@ -15,11 +15,36 @@ export const initialState: SearchState = {
 
 export function reducer(state = initialState, action: fromActions.SearchAction): SearchState {
   switch (action.type) {
-    case fromActions.SearchActionTypes.LoadSearchResults :
+    case fromActions.SearchActionTypes.LoadSearchResults: {
       return {
         ...state,
         loading: true
       };
+    }
+    case fromActions.SearchActionTypes.LoadSearchResultsSuccess: {
+      const searchResults = action.payload;
+      const entities = searchResults.reduce(
+        (results: { [id: number]: SearchResult }, searchResult: SearchResult) => {
+          return {
+            ...results,
+            [searchResult.id]: searchResult,
+          };
+        },
+        {
+          ...state.entities,
+        }
+      );
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        entities
+      };
+    }
   }
   return state;
 }
+
+export const getSearchEntities = (state: SearchState) => state.entities;
+export const getSearchLoading = (state: SearchState) => state.loading;
+export const getSearchLoaded = (state: SearchState) => state.loaded;

@@ -30,9 +30,8 @@ describe('Search Reducer', () => {
       0: searchResults[0],
       1: searchResults[1]
     };
-
     const { initialState } = fromSearch;
-    const action = fromActions.LoadSearchResultsSuccess;
+    const action = new fromActions.LoadSearchResultsSuccess(searchResults);
     const state = fromSearch.reducer(initialState, action);
 
     expect(state.loaded).toEqual(true);

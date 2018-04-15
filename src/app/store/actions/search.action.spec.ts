@@ -9,9 +9,14 @@ describe('Search Actions', () => {
   });
 
   it('creates load search success action ', () => {
-    const action = new fromSearch.LoadSearchResultsSuccess();
+    const payload = [
+      {id: 0, name: 'Hammer'},
+      {id: 1, name: 'Nail'}
+    ];
+    const action = new fromSearch.LoadSearchResultsSuccess(payload);
     expect({...action}).toEqual({
-      type: fromSearch.SearchActionTypes.LoadSearchResultsSuccess
+      type: fromSearch.SearchActionTypes.LoadSearchResultsSuccess,
+      payload
     });
   });
 
