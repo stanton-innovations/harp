@@ -1,4 +1,4 @@
-import * as fromSearch from './search-action';
+import * as fromSearch from './search.action';
 
 describe('Search Actions', () => {
   it('creates a load search action ', () => {
