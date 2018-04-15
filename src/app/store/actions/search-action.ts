@@ -19,4 +19,7 @@ export class LoadSearchResultsFail implements Action {
   readonly type: string = SearchActionTypes.LoadSearchResultsFail;
 }
 
-export type SearchAction = LoadSearchResults | LoadSearchResultsFail | LoadSearchResultsSuccess;
+export type SearchAction =
+  LoadSearchResults |
+  LoadSearchResultsFail |
+  LoadSearchResultsSuccess;
