@@ -6,6 +6,7 @@ export interface SearchState {
   loaded: boolean;
   loading: boolean;
 }
+
 export const initialState: SearchState = {
   entities: {},
   loaded: false,
@@ -13,5 +14,12 @@ export const initialState: SearchState = {
 };
 
 export function reducer(state = initialState, action: fromActions.SearchAction): SearchState {
+  switch (action.type) {
+    case fromActions.SearchActionTypes.LoadSearchResults :
+      return {
+        ...state,
+        loading: true
+      };
+  }
   return state;
 }
