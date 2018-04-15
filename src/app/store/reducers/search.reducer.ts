@@ -1,5 +1,6 @@
 import { SearchResult } from '../../models/search-result';
 import * as fromActions from '../actions/search.action';
+
 export interface SearchState {
   entities: { [id: number]: SearchResult };
   loaded: boolean;
