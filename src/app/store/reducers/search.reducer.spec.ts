@@ -1,4 +1,4 @@
-import * as fromSearch from './search.reducer'
+import * as fromSearch from './search.reducer';
 
 describe('Search Reducer', () => {
   it('has a default state', () => {
