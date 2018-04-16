@@ -22,7 +22,8 @@ import { MetaReducer, StoreModule } from '@ngrx/store';
 import { environment } from '../environments/environment';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { reducers, CustomSerializer } from './store';
-import { RouterStateSerializer } from '@ngrx/router-store';
+import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
   ? [storeFreeze]
@@ -39,7 +40,10 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
   ],
   imports: [
     BrowserModule,
-    RouterModule,
+    StoreRouterConnectingModule,
+    StoreModule.forRoot(reducers, {metaReducers}),
+    EffectsModule.forRoot([]),
+    environment.production ?  [] : StoreDevtoolsModule.instrument(),
     SearchResultsModule,
     MiniCartModule,
     AppRoutingModule,
@@ -47,9 +51,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatCardModule,
-    MiniCartModule,
-    StoreModule.forRoot(reducers, {metaReducers}),
-    EffectsModule.forRoot([]),
+    MiniCartModule
   ],
   providers: [
     FakeBackendProvider,
