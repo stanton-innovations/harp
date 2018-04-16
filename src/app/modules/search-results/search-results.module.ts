@@ -5,6 +5,7 @@ import { MatButtonModule, MatCardModule } from '@angular/material';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { SearchResultsComponent } from './containers/search-results/search-results.component';
 import { SearchResultsRoutingModule } from './search-results-routing.module';
+import { SearchService } from './services/search.service';
 
 @NgModule({
   imports: [
@@ -16,6 +17,9 @@ import { SearchResultsRoutingModule } from './search-results-routing.module';
   declarations: [
     SearchResultsComponent,
     SearchResultComponent
+  ],
+  providers: [
+    SearchService
   ]
 })
 export class SearchResultsModule { }
