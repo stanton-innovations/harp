@@ -17,6 +17,16 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SearchResultsModule } from './modules/search-results/search-results.module';
 import { AppRoutingModule } from './app-routing.module';
 import { MiniCartModule } from './modules/mini-cart/mini-cart.module';
+import { EffectsModule } from '@ngrx/effects';
+import { MetaReducer, StoreModule } from '@ngrx/store';
+import { environment } from '../environments/environment';
+import { storeFreeze } from 'ngrx-store-freeze';
+import { reducers, CustomSerializer } from './store';
+import { RouterStateSerializer } from '@ngrx/router-store';
+
+export const metaReducers: MetaReducer<any>[] = !environment.production
+  ? [storeFreeze]
+  : [];
 
 @NgModule({
   declarations: [
@@ -37,9 +47,19 @@ import { MiniCartModule } from './modules/mini-cart/mini-cart.module';
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatCardModule,
-    MiniCartModule
+    MiniCartModule,
+    StoreModule.forRoot(reducers, {metaReducers}),
+    EffectsModule.forRoot([]),
   ],
-  providers: [FakeBackendProvider, TinkerService],
+  providers: [
+    FakeBackendProvider,
+    TinkerService,
+    {
+      provide: RouterStateSerializer,
+      useClass: CustomSerializer
+    }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
