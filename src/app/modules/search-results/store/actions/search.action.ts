@@ -8,7 +8,6 @@ export enum SearchActionTypes {
 }
 
 export class LoadSearchResults implements Action {
-  payload: undefined;
   readonly type = SearchActionTypes.LoadSearchResults;
 }
 

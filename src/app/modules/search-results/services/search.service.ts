@@ -9,7 +9,6 @@ export class SearchService {
   constructor(private http: HttpClient) { }
 
   get() {
-    console.log('GET::::::::::::::::::::::::::::::::::::::::::::::::::')
     return this.http.get('/api/characters');
   }
 }

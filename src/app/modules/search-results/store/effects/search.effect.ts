@@ -18,7 +18,6 @@ export class SearchEffects {
     .ofType(fromActions.SearchActionTypes.LoadSearchResults)
     .pipe(
       switchMap(() => {
-        console.log('blah');
         return this.searchService
           .get()
           .pipe(

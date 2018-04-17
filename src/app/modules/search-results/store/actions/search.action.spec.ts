@@ -21,9 +21,10 @@ describe('Search Actions', () => {
   });
 
   it('creates load search fail action ', () => {
-    const action = new fromSearch.LoadSearchResultsFail();
+    const action = new fromSearch.LoadSearchResultsFail(undefined);
     expect({...action}).toEqual({
-      type: fromSearch.SearchActionTypes.LoadSearchResultsFail
+      type: fromSearch.SearchActionTypes.LoadSearchResultsFail,
+      payload: undefined
     });
   });
 });

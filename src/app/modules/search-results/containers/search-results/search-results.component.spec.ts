@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SearchResultsComponent } from './search-results.component';
 import { SearchResultComponent } from '../../components/search-result/search-result.component';
 import { MatCardModule } from '@angular/material';
+import { Store, StoreModule } from '@ngrx/store';
 
 describe('SearchResultsComponent', () => {
   let component: SearchResultsComponent;
@@ -11,7 +12,8 @@ describe('SearchResultsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MatCardModule
+        MatCardModule,
+        StoreModule.forRoot({})
       ],
       declarations: [
         SearchResultComponent,
