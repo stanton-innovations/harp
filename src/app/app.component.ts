@@ -8,6 +8,6 @@ import { TinkerService } from './services/tinker.service';
 })
 export class AppComponent {
   constructor(private tinker: TinkerService) {
-    this.tinker.get();
+    // this.tinker.get();
   }
 }

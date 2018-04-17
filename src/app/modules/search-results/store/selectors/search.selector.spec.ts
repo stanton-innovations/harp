@@ -46,7 +46,7 @@ describe('search selectors', () => {
   it('get search success', () => {
     let result = {};
 
-    store.select(fromSelectors.getSearchState)
+    store.select(fromSelectors.getSearchResults)
       .subscribe((value) => {
         result = value;
       });
