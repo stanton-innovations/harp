@@ -13,12 +13,13 @@ export class LoadSearchResults implements Action {
 }
 
 export class LoadSearchResultsSuccess implements Action {
-  type = SearchActionTypes.LoadSearchResultsSuccess;
+  readonly type = SearchActionTypes.LoadSearchResultsSuccess;
   constructor(public payload: SearchResult[]) {}
 }
 
 export class LoadSearchResultsFail implements Action {
   readonly type = SearchActionTypes.LoadSearchResultsFail;
+  constructor(public payload: any) {}
 }
 
 export type SearchAction =

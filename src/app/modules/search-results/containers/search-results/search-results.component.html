@@ -1,1 +1,2 @@
-<search-result></search-result>
+<search-result [result]="result" *ngFor="let result of (searchResults | async)"></search-result>
+

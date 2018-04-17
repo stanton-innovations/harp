@@ -8,3 +8,15 @@ export const getSearchResults =
 
 export const getSearchEntities =
   createSelector(getSearchResults, fromSearch.getSearchEntities);
+
+export const getAllSearchResults = createSelector(
+  getSearchEntities,
+  (entities) => {
+    return Object.keys(entities).map(name => entities[name]);
+  });
+
+export const getAllSearchLoaded =
+  createSelector(getSearchResults, fromSearch.getSearchLoaded);
+
+export const getAllSearchLoading =
+  createSelector(getSearchResults, fromSearch.getSearchLoading);

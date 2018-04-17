@@ -9,4 +9,5 @@ export const reducers: ActionReducerMap<SearchState> = {
   results: fromSearch.reducer
 };
 
-export const getSearchState = createFeatureSelector<SearchState>('search');
+export const getSearchState =
+  createFeatureSelector<SearchState>('search');

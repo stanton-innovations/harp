@@ -14,16 +14,19 @@ export class SearchEffects {
   }
 
   @Effect()
-  loadSearchResults$ = this.actions$.ofType(fromActions.SearchActionTypes.LoadSearchResultsSuccess).pipe(
-    switchMap(() => {
-      return this.searchService
-        .get()
-        .pipe(
-          tap(data => console.log('data', data)),
-          map((searchResults: SearchResult[]) => new fromActions.LoadSearchResultsSuccess(searchResults)),
-          // catchError(error => of(new fromActions.LoadSearchResultsFail(error)))
-        );
-    })
-  );
+  loadSearchResults$ = this.actions$
+    .ofType(fromActions.SearchActionTypes.LoadSearchResults)
+    .pipe(
+      switchMap(() => {
+        console.log('blah');
+        return this.searchService
+          .get()
+          .pipe(
+            // tap(data => console.log('data', data.list)),
+            map((searchResults: {list: {results: SearchResult[]}}) => new fromActions.LoadSearchResultsSuccess(searchResults.list.results)),
+            // catchError(error => of(new fromActions.LoadSearchResultsFail(error)))
+          );
+      })
+    );
 }
 
