@@ -25,7 +25,7 @@ export class FakeBackendInterceptorService implements HttpInterceptor {
       mergeMap(() => {
 
         if (request.url.endsWith('/api/characters') && request.method === 'GET') {
-          return of(new HttpResponse({status: 200, body: Pokemon.list}));
+          return of(new HttpResponse({status: 200, body: Pokemon.list.list.results}));
         }
 
         if (request.url.match(/\/api\/characters\/\d+$/) && request.method === 'GET') {

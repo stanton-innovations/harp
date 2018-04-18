@@ -2,9 +2,11 @@ import * as fromSearch from './search.action';
 
 describe('Search Actions', () => {
   it('creates a load search action ', () => {
-    const action = new fromSearch.LoadSearchResults();
+    const payload = 'hammer';
+    const action = new fromSearch.LoadSearchResults(payload);
     expect({...action}).toEqual({
-      type: fromSearch.SearchActionTypes.LoadSearchResults
+      type: fromSearch.SearchActionTypes.LoadSearchResults,
+      payload
     });
   });
 

@@ -9,11 +9,12 @@ export enum SearchActionTypes {
 
 export class LoadSearchResults implements Action {
   readonly type = SearchActionTypes.LoadSearchResults;
+  constructor(public payload: any) {}
 }
 
 export class LoadSearchResultsSuccess implements Action {
   readonly type = SearchActionTypes.LoadSearchResultsSuccess;
-  constructor(public payload: SearchResult[]) {}
+  constructor(public payload: any) {}
 }
 
 export class LoadSearchResultsFail implements Action {

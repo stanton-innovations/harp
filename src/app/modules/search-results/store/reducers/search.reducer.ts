@@ -16,6 +16,15 @@ export const initialState: SearchState = {
 export function reducer(state = initialState, action: fromActions.SearchAction): SearchState {
   switch (action.type) {
     case fromActions.SearchActionTypes.LoadSearchResults: {
+      const searchString = action.payload;
+
+      if (searchString === '') {
+        return {
+          ...state,
+          loading: true,
+          ...searchString
+        };
+      }
       return {
         ...state,
         loading: true
