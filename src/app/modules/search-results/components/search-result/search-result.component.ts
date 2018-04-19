@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Host, HostBinding, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'search-result',

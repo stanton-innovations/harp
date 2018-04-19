@@ -1,11 +1,14 @@
 <mat-card>
-  <mat-card-title>Hammer</mat-card-title>
-  <mat-card-subtitle>Nails it on the head!</mat-card-subtitle>
+  <img mat-card-image src="{{result.image}}">
+  <mat-card-title>{{result.name}}</mat-card-title>
+  <mat-card-subtitle>{{result.brand}}</mat-card-subtitle>
   <mat-card-content>
-    {{result.id}}
-    {{result.name}}
+    <ul>
+      <li>SKU# {{result.sku}}</li>
+      <li>Model {{result.model}}</li>
+      <li>Internet# {{result.internet}}</li>
+    </ul>
   </mat-card-content>
-  <img mat-card-image>
   <mat-card-actions>
     <button mat-raised-button>Add To Cart</button>
   </mat-card-actions>
