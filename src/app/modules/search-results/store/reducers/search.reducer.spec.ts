@@ -10,14 +10,24 @@ describe('Search Reducer', () => {
     expect(state).toBe(initialState);
   });
 
-  it('LoadSearchResults action', () => {
+  it('Does not LoadSearchResults action', () => {
     const { initialState } = fromSearch;
-    const action = new fromActions.LoadSearchResults();
+    const action = new fromActions.LoadSearchResults('');
     const state = fromSearch.reducer(initialState, action);
 
+    expect(action.payload).toEqual('');
     expect(state.loading).toEqual(true);
     expect(state.loaded).toEqual(false);
     expect(state.entities).toEqual({});
+  });
+
+  it('LoadSearchResults action', () => {
+    const { initialState } = fromSearch;
+    const action = new fromActions.LoadSearchResults('hammer');
+    const state = fromSearch.reducer(initialState, action);
+
+    expect(action.payload).toEqual('hammer');
+    expect(state.loading).toEqual(true);
   });
 
   it('LoadSearchResultsSuccess action', () => {
@@ -37,5 +47,9 @@ describe('Search Reducer', () => {
     expect(state.loaded).toEqual(true);
     expect(state.loading).toEqual(false);
     expect(state.entities).toEqual(entities);
+
+    expect(fromSearch.getSearchEntities(state)).toEqual(entities);
+    expect(fromSearch.getSearchLoading(state)).toEqual(false);
+    expect(fromSearch.getSearchLoaded(state)).toEqual(true);
   });
 });

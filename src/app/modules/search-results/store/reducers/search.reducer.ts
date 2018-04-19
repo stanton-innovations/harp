@@ -18,14 +18,11 @@ export function reducer(state = initialState, action: fromActions.SearchAction):
     case fromActions.SearchActionTypes.LoadSearchResults: {
       const searchString = action.payload;
 
-      if (searchString === '') {
-        return {
-          ...state,
-          loading: true,
-          ...searchString
-        };
-      }
-      return {
+      return searchString === '' ? {
+        ...state,
+        loading: true,
+        ...searchString
+      } : {
         ...state,
         loading: true
       };
