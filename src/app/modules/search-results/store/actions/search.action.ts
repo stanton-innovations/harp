@@ -1,5 +1,4 @@
 import { Action } from '@ngrx/store';
-import { SearchResult } from '../../models/search-result';
 
 export enum SearchActionTypes {
   LoadSearchResults = '[Search] Load Search Results',

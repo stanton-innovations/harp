@@ -5,7 +5,7 @@ import { SearchResultsComponent } from './containers/search-results/search-resul
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'search',
     component: SearchResultsComponent
   }
 ];

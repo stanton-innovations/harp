@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import * as fromSearch from '../../store/';
 import { SearchResult } from '../../models/search-result';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'search-results',
@@ -12,12 +13,17 @@ import { SearchResult } from '../../models/search-result';
 })
 export class SearchResultsComponent implements OnInit {
   searchResults: Observable<SearchResult[]>;
-  constructor(private store: Store<fromSearch.SearchState>) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private store: Store<fromSearch.SearchState>) { }
 
   ngOnInit() {
-    this.searchResults = this.store.select(fromSearch.getAllSearchResults);
-    // TODO: need to fix this
-    this.store.dispatch(new fromSearch.LoadSearchResults('hammer'));
+    this.activatedRoute
+      .queryParamMap
+      .subscribe((query: any) => {
+        this.searchResults = this.store.select(fromSearch.getAllSearchResults);
+        this.store.dispatch(new fromSearch.LoadSearchResults(query.params.search));
+    });
   }
 
 }
