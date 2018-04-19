@@ -8,6 +8,7 @@ import {ProfileComponent} from '../../components/profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldControl, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -18,6 +19,7 @@ describe('HeaderComponent', () => {
       imports: [
         ReactiveFormsModule,
         BrowserAnimationsModule,
+        RouterTestingModule,
         MatFormFieldModule,
         MatInputModule
       ],

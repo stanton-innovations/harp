@@ -4,6 +4,7 @@ import { SearchComponent } from './search.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -14,6 +15,7 @@ describe('SearchComponent', () => {
       imports: [
         ReactiveFormsModule,
         BrowserAnimationsModule,
+        RouterTestingModule,
         MatFormFieldModule,
         MatInputModule
       ],
