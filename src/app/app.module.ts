@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { MatCardModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,6 +26,7 @@ import { SearchResultsModule } from './modules/search-results/search-results.mod
 
 import { FakeBackendProvider } from './services/fake-backend-interceptor.service';
 import { TinkerService } from './services/tinker.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
   ? [storeFreeze]
@@ -42,6 +43,8 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
     StoreRouterConnectingModule,
     StoreModule.forRoot(reducers, {metaReducers}),
     EffectsModule.forRoot([]),
@@ -53,7 +56,9 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatCardModule,
-    MiniCartModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [
     FakeBackendProvider,

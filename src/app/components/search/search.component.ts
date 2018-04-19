@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { SearchForm } from '../../models/search-result';
 
 @Component({
   selector: 'search',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-
-  constructor() { }
+  searchForm: FormGroup;
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.createSearchForm();
   }
 
+  createSearchForm() {
+    this.searchForm = this.fb.group<SearchForm>({
+      search: new FormControl()
+    });
+  }
+
+  search(search) {
+    console.log(search);
+  }
 }

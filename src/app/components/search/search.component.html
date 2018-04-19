@@ -1,4 +1,10 @@
-<div>
-<input type="text" />
-<button>Search</button>
-</div>
+<form [formGroup]="searchForm">
+  <mat-form-field>
+    <input matInput title="search" formControlName="search">
+  </mat-form-field>
+  <button mat-raised-button
+    (click)="search(searchForm.controls.search.value)">
+    Search
+  </button>
+
+</form>
