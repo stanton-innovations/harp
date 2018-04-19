@@ -16,7 +16,7 @@ function createList(count: number) {
         amount: faker.commerce.price(),
         per: '1'
       },
-      image: faker.random.image()
+      image: faker.image.avatar()
     });
   }
   return data;

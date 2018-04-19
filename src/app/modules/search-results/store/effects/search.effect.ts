@@ -1,10 +1,10 @@
 import { Inject, Injectable, InjectionToken, Optional } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { SearchService } from '../../services/search.service';
-import { debounceTime, map, switchMap, tap } from 'rxjs/internal/operators';
+import { debounceTime, map, switchMap } from 'rxjs/internal/operators';
 import * as fromActions from '../actions/';
 import { SearchResult } from '../../models/search-result';
-import { asyncScheduler, empty, Scheduler } from 'rxjs';
+import { asyncScheduler, EMPTY, Scheduler } from 'rxjs';
 
 export const SEARCH_DEBOUNCE = new InjectionToken<number>('Search Debounce');
 export const SEARCH_SCHEDULER = new InjectionToken<Scheduler>(
@@ -37,7 +37,7 @@ export class SearchEffects {
     map(action => action.payload),
     switchMap((search) => {
       if (search === '') {
-        return empty();
+        return EMPTY;
       }
       return this.searchService
         .get()

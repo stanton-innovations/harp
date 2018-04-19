@@ -1,7 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { fakeAsync, flush, TestBed } from '@angular/core/testing';
 import { Actions } from '@ngrx/effects';
-import { empty, Observable, of } from 'rxjs';
+import { EMPTY, empty, Observable, of } from 'rxjs';
 import { cold, getTestScheduler, hot } from 'jasmine-marbles';
 
 import { SearchEffects } from '../effects/';
@@ -12,7 +12,7 @@ import { SEARCH_DEBOUNCE, SEARCH_SCHEDULER } from './search.effect';
 
 export class TestActions extends Actions {
   constructor() {
-    super(empty());
+    super(EMPTY);
   }
 
   set stream(source: Observable<any>) {
