@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TinkerService } from './services/tinker.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +6,5 @@ import { TinkerService } from './services/tinker.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private tinker: TinkerService) {
-    // this.tinker.get();
-  }
+  constructor() {}
 }

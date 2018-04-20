@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,8 +26,6 @@ import { MiniCartModule } from './modules/mini-cart/mini-cart.module';
 import { SearchResultsModule } from './modules/search-results/search-results.module';
 
 import { FakeBackendProvider } from './services/fake-backend-interceptor.service';
-import { TinkerService } from './services/tinker.service';
-import { ReactiveFormsModule } from '@angular/forms';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
   ? [storeFreeze]
@@ -62,7 +61,6 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
   ],
   providers: [
     FakeBackendProvider,
-    TinkerService,
     {
       provide: RouterStateSerializer,
       useClass: CustomSerializer

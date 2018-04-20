@@ -7,6 +7,7 @@ import { ActionReducer, Store, StoreModule } from '@ngrx/store';
 import * as fromActions from '../../store/actions/';
 import * as fromRoot from '../../../../store/';
 import { of } from 'rxjs';
+import { RouterTestingModule } from '@angular/router/testing';
 
 export function mockMetaReducer(reducer: ActionReducer<any>): ActionReducer<any, any> {
   return function (state: any, action: any): any {
@@ -19,7 +20,7 @@ export function mockMetaReducer(reducer: ActionReducer<any>): ActionReducer<any,
     return reducer(state, action);
   };
 }
-xdescribe('SearchResultsComponent', () => {
+describe('SearchResultsComponent', () => {
   let component: SearchResultsComponent;
   let fixture: ComponentFixture<SearchResultsComponent>;
 
@@ -27,6 +28,7 @@ xdescribe('SearchResultsComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         MatCardModule,
+        RouterTestingModule,
         StoreModule.forRoot({ ...fromRoot.reducers },
           { metaReducers: [mockMetaReducer] })
       ],
@@ -45,8 +47,6 @@ xdescribe('SearchResultsComponent', () => {
   });
 
   it('should create', () => {
-    component.searchResults = of([{id: 0, name: 'test'}]);
-    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

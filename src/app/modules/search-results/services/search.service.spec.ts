@@ -1,21 +1,32 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { SearchService } from './search.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('Search Service', () => {
+  let service: SearchService,
+    backend: HttpTestingController;
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [SearchService]
     });
+    service = TestBed.get(SearchService);
+    backend = TestBed.get(HttpTestingController);
   });
 
-  it('should be created', inject([SearchService], (service: SearchService) => {
-    expect(service).toBeTruthy();
-  }));
-
   it('gets search results', () => {
-    // TODO
+    const data = [{test: 'test'}];
+
+    service
+      .get()
+      .subscribe(results => expect(results).toEqual(data));
+
+    backend
+      .match({
+        url: '/api/characters',
+        method: 'GET'
+      })[0]
+      .flush(data);
   });
 });

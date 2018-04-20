@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { SearchForm } from '../../models/search-result';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,9 +9,11 @@ import { Router } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
   searchForm: FormGroup;
+
   constructor(
     private router: Router,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder) {
+  }
 
   ngOnInit() {
     this.createSearchForm();
@@ -29,6 +30,7 @@ export class SearchComponent implements OnInit {
       skipLocationChange: true,
       queryParams: {
         search: search
-      }});
+      }
+    });
   }
 }
