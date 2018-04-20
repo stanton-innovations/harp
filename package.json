@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "stryker": "stryker run"
+    "stryker": "stryker run",
+    "wallaby": "open http://localhost:51245/"
   },
   "private": true,
   "dependencies": {
