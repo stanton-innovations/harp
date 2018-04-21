@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { SearchService } from './search.service';
+import { api } from '../module.constants';
 
 describe('Search Service', () => {
   let service: SearchService,
@@ -24,7 +25,7 @@ describe('Search Service', () => {
 
     backend
       .match({
-        url: '/api/characters',
+        url: api.results,
         method: 'GET'
       })[0]
       .flush(data);

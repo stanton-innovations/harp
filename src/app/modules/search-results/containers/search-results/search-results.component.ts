@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import * as fromSearch from '../../store/';
 import { SearchResult } from '../../models/search-result';
 import { ActivatedRoute, Router } from '@angular/router';
+import { navigation } from '../../module.constants';
 
 @Component({
   selector: 'search-results',
@@ -30,7 +31,7 @@ export class SearchResultsComponent implements OnInit {
   }
 
   showDetail(result: any) {
-    this.router.navigate(['detail'], {
+    this.router.navigate([navigation.details], {
       skipLocationChange: true,
       queryParams: {
         id: result.id
