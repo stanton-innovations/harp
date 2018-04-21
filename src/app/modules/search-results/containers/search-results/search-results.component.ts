@@ -29,7 +29,7 @@ export class SearchResultsComponent implements OnInit {
     });
   }
 
-  showDetail(result: object) {
+  showDetail(result: any) {
     this.router.navigate(['detail'], {
       skipLocationChange: true,
       queryParams: {
