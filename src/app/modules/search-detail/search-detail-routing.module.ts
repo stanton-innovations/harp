@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SearchDetailComponent } from './containers/search-detail/search-detail.component';
+import { navigation } from '../search-results/module.constants';
 
 const routes: Routes = [
   {
-    path: 'detail',
+    path: navigation.details,
     component: SearchDetailComponent
   }
 ];

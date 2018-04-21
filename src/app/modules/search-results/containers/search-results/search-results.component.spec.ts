@@ -8,6 +8,7 @@ import { SearchResultsComponent } from './search-results.component';
 import { SearchResultComponent } from '../../components/search-result/search-result.component';
 import * as fromActions from '../../store/actions/';
 import * as fromRoot from '../../../../store/';
+import { navigation } from '../../module.constants';
 
 export function mockMetaReducer(reducer: ActionReducer<any>): ActionReducer<any, any> {
   return function (state: any, action: any): any {
@@ -78,7 +79,7 @@ describe('SearchResultsComponent', () => {
     spyOn(router, 'navigate');
     component.showDetail({id: '1'});
     tick(301);
-    expect(router.navigate).toHaveBeenCalledWith(['detail'], {
+    expect(router.navigate).toHaveBeenCalledWith([navigation.details], {
         skipLocationChange: true,
         queryParams: {
           id: '1'
