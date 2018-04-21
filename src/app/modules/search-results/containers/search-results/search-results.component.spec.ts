@@ -1,15 +1,13 @@
-import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatCardModule } from '@angular/material';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ActionReducer, Store, StoreModule } from '@ngrx/store';
 
 import { SearchResultsComponent } from './search-results.component';
 import { SearchResultComponent } from '../../components/search-result/search-result.component';
-import { MatCardModule } from '@angular/material';
-import { ActionReducer, Store, StoreModule } from '@ngrx/store';
 import * as fromActions from '../../store/actions/';
 import * as fromRoot from '../../../../store/';
-import { of } from 'rxjs';
-import { RouterTestingModule } from '@angular/router/testing';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Component } from '@angular/core';
 
 export function mockMetaReducer(reducer: ActionReducer<any>): ActionReducer<any, any> {
   return function (state: any, action: any): any {
