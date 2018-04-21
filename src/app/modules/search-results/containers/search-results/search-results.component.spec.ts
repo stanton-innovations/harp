@@ -27,6 +27,9 @@ describe('SearchResultsComponent', () => {
   let component: SearchResultsComponent;
   let fixture: ComponentFixture<SearchResultsComponent>;
   let router: Router;
+  let store: Store;
+  let activatedRoute: ActivatedRoute;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -45,6 +48,8 @@ describe('SearchResultsComponent', () => {
 
   beforeEach(() => {
     router = TestBed.get(Router);
+    store = TestBed.get(Store);
+    activatedRoute = TestBed.get(ActivatedRoute);
     fixture = TestBed.createComponent(SearchResultsComponent);
     component = fixture.componentInstance;
     router.initialNavigation();
@@ -53,6 +58,22 @@ describe('SearchResultsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('selects a store and dispatches event', () => {
+    spyOn(store, 'select');
+    spyOn(store, 'dispatch');
+    router.navigate(['/'], {
+      queryParams: {
+        search: 'test'
+      }});
+    activatedRoute.queryParamMap
+      .subscribe((d: any) => {
+        if (d.params.search) {
+          expect(store.select).toHaveBeenCalled();
+          expect(store.dispatch).toHaveBeenCalled();
+        }
+    });
   });
 
   it('navigates to detail', fakeAsync(() => {
