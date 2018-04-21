@@ -1,4 +1,5 @@
 <search-result
+  (click)="showDetail(result)"
   [result]="result"
   *ngFor="let result of (searchResults | async)">
 </search-result>

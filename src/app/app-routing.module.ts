@@ -8,6 +8,10 @@ const routes: Routes = [
   },
   {
     path: '',
+    loadChildren: './modules/search-detail/search-detail.module#SearchDetailModule'
+  },
+  {
+    path: '',
     loadChildren: './modules/mini-cart/mini-cart.module#MiniCartModule'
   },
   {
