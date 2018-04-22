@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SearchDetailService } from '../../services/search-detail.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'search-detail',
@@ -8,7 +9,7 @@ import { SearchDetailService } from '../../services/search-detail.service';
   styleUrls: ['./search-detail.component.css']
 })
 export class SearchDetailComponent implements OnInit {
-
+  details$: Observable<any>;
   constructor(
     private activatedRoute: ActivatedRoute,
     private service: SearchDetailService
@@ -18,7 +19,7 @@ export class SearchDetailComponent implements OnInit {
     this.activatedRoute
       .queryParams
       .subscribe(data => {
-        this.service.get(data.id).subscribe(d => console.log('boo', d));
+        this.details$ = this.service.get(data.id);
       });
   }
 

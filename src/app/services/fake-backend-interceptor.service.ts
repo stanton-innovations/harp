@@ -11,9 +11,8 @@ export class FakeBackendInterceptorService implements HttpInterceptor {
   constructor() {}
 
   whichPokemon(id) {
-    return {
-      details: Pokemon.details,
-    }[id];
+    const details = Pokemon.details;
+    return details;
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
