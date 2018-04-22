@@ -9,7 +9,8 @@ import { SearchDetailService } from '../../services/search-detail.service';
 })
 export class SearchDetailComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute,
+  constructor(
+    private activatedRoute: ActivatedRoute,
     private service: SearchDetailService
   ) { }
 
