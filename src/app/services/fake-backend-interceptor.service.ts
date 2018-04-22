@@ -12,11 +12,7 @@ export class FakeBackendInterceptorService implements HttpInterceptor {
 
   whichPokemon(id) {
     return {
-      1: Pokemon.one as object,
-      2: Pokemon.two,
-      3: Pokemon.three,
-      4: Pokemon.four,
-      5: Pokemon.five
+      details: Pokemon.details as object,
     }[id];
   }
 

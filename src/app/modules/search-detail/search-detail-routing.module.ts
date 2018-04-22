@@ -5,7 +5,7 @@ import { navigation } from '../search-results/module.constants';
 
 const routes: Routes = [
   {
-    path: navigation.details,
+    path: `${navigation.details}/:id`,
     component: SearchDetailComponent
   }
 ];
