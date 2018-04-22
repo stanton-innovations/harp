@@ -12,7 +12,7 @@ export class FakeBackendInterceptorService implements HttpInterceptor {
 
   whichPokemon(id) {
     return {
-      details: Pokemon.details as object,
+      details: Pokemon.details,
     }[id];
   }
 
@@ -25,7 +25,6 @@ export class FakeBackendInterceptorService implements HttpInterceptor {
         }
 
         if (request.url.match(/\/api\/characters\/\d+$/) && request.method === 'GET') {
-          // find user by id in users array
           const urlParts = request.url.split('/');
           const id = parseInt(urlParts[urlParts.length - 1]);
           return of(new HttpResponse({ status: 200, body: this.whichPokemon(id) }));

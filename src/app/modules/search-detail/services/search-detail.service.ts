@@ -7,7 +7,6 @@ export class SearchDetailService {
   constructor(private http: HttpClient) { }
 
   get(id: string) {
-    console.log(id);
     return this.http.get(`/api/characters/${id}`);
   }
 }

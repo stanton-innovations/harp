@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SearchDetailService } from '../../services/search-detail.service';
 
 @Component({
   selector: 'search-detail',
@@ -8,12 +9,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SearchDetailComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute,
+    private service: SearchDetailService
+  ) { }
 
   ngOnInit() {
     this.activatedRoute
       .queryParams
-      .subscribe(data => console.log(data));
+      .subscribe(data => {
+        this.service.get(data.id).subscribe(d => console.log('boo', d));
+      });
   }
 
 }
