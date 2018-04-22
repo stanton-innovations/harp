@@ -1,27 +1,27 @@
 import { Action } from '@ngrx/store';
 
 export enum SearchDetailActionTypes {
-  LoadSearchDetailResults = '[Search] Load Search Results',
-  LoadSearchDetailResultsFail = '[Search] Load Search Results Fail',
-  LoadSearchDetailResultsSuccess = '[Search] Load Search Results Success'
+  LoadSearchDetailResult = '[Result] Load Search Detail',
+  LoadSearchDetailResultFail = '[Result] Load Search Detail Fail',
+  LoadSearchDetailResultSuccess = '[Result] Load Search Detail Success'
 }
 
-export class LoadSearchDetailResults implements Action {
-  readonly type = SearchDetailActionTypes.LoadSearchDetailResults;
+export class LoadSearchDetailResult implements Action {
+  readonly type = SearchDetailActionTypes.LoadSearchDetailResult;
   constructor(public payload: any) {}
 }
 
-export class LoadSearchDetailResultsSuccess implements Action {
-  readonly type = SearchDetailActionTypes.LoadSearchDetailResultsSuccess;
+export class LoadSearchDetailResultSuccess implements Action {
+  readonly type = SearchDetailActionTypes.LoadSearchDetailResultSuccess;
   constructor(public payload: any) {}
 }
 
-export class LoadSearchDetailResultsFail implements Action {
-  readonly type = SearchDetailActionTypes.LoadSearchDetailResultsFail;
+export class LoadSearchDetailResultFail implements Action {
+  readonly type = SearchDetailActionTypes.LoadSearchDetailResultFail;
   constructor(public payload: any) {}
 }
 
 export type SearchDetailAction =
-  | LoadSearchDetailResults
-  | LoadSearchDetailResultsFail
-  | LoadSearchDetailResultsSuccess;
+  | LoadSearchDetailResult
+  | LoadSearchDetailResultFail
+  | LoadSearchDetailResultSuccess;
